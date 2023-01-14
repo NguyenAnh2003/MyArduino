@@ -1,12 +1,8 @@
-// mutiple tasks with millis
-
 // C++ code
 // time
 unsigned long time;
-unsigned long prevtime1;
-unsigned long prevtime2;
-const long interval1 = 1000;
-const long interval2 = 5000;
+unsigned long prevtime1 = millis();
+unsigned long prevtime2 = millis();
 
 // state
 boolean status = false;
@@ -40,6 +36,13 @@ void loop()
 {	
   // init current time
   time = millis();
+  HelloLed2(time);
+  HelloLed3(time);
+  proButton();
+}
+
+void HelloLed2(unsigned long time) {
+  const long interval1 = 1000;
   if(time - prevtime1 >= interval1)
   {	
     led2State = !led2State;
@@ -47,7 +50,12 @@ void loop()
     
     prevtime1 = time;
   }
-  
+}
+
+void HelloLed3(unsigned long time) {
+
+  const long interval2 = 2000;
+
   if(time - prevtime2 >= interval2)
   {	
     led3State = !led3State;
@@ -55,8 +63,6 @@ void loop()
     
     prevtime2 = time;
   }
-  
-  proButton();
 }
 
 void proButton() {
