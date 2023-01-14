@@ -36,12 +36,12 @@ void loop()
 {	
   // init current time
   time = millis();
-  HelloLed2(time);
-  HelloLed3(time);
+  HelloLed2();
+  HelloLed3();
   proButton();
 }
 
-void HelloLed2(unsigned long time) {
+void HelloLed2() {
   const long interval1 = 1000;
   if(time - prevtime1 >= interval1)
   {	
@@ -52,7 +52,7 @@ void HelloLed2(unsigned long time) {
   }
 }
 
-void HelloLed3(unsigned long time) {
+void HelloLed3() {
 
   const long interval2 = 2000;
 
